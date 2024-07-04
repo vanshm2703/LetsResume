@@ -3,13 +3,20 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import NavbarTab from "./NavbarTab";
+import { Auth0Provider } from "@auth0/auth0-react";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <NavbarTab />
-    <App />
+    <Auth0Provider
+      domain="dev-cp6bim66jwhpa5k7.us.auth0.com"
+      clientId="ux9orLoGSSijlogeYsDCSdlZar9rtuli"
+      authorizationParams={{
+        redirect_uri: window.location.origin,
+      }}
+    >
+      <App />
+    </Auth0Provider>
   </React.StrictMode>,
 );
 

@@ -1,48 +1,48 @@
-import React, { useState } from 'react';
+import React from "react";
+import "./forms.css";
 
-function AwardCertificationForm() {
-  const [awardName, setAwardName] = useState('');
-  const [institution, setInstitution] = useState('');
-  const [date, setDate] = useState('');
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission logic
+function AwardCertificationForm({ data, onUpdate }) {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    onUpdate({ ...data, [name]: value });
   };
 
   return (
     <div className="form-container">
-      <h2>Award/Certification</h2>
-      <form onSubmit={handleSubmit}>
+      <h2>Awards & Certifications</h2>
+      <form>
         <div className="form-group">
-          <label>Award Name</label>
+          <label>Award/Certification Name</label>
           <input
             type="text"
-            value={awardName}
-            onChange={(e) => setAwardName(e.target.value)}
+            name="name"
+            value={data.name || ""}
+            onChange={handleChange}
           />
         </div>
         <div className="form-group">
           <label>Institution</label>
           <input
             type="text"
-            value={institution}
-            onChange={(e) => setInstitution(e.target.value)}
+            name="institution"
+            value={data.institution || ""}
+            onChange={handleChange}
           />
         </div>
         <div className="form-group">
           <label>Date</label>
           <input
             type="text"
+            name="date"
             placeholder="MM/YY"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
+            value={data.date || ""}
+            onChange={handleChange}
           />
         </div>
-        <button type="submit">save</button>
       </form>
     </div>
   );
 }
 
 export default AwardCertificationForm;
+

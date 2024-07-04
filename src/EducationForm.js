@@ -1,53 +1,50 @@
-import React, { useState } from 'react';
+import React from "react";
+import "./forms.css";
 
-function EducationForm() {
-  const [institutionName, setInstitutionName] = useState('');
-  const [course, setCourse] = useState('');
-  const [country, setCountry] = useState('');
-  const [state, setState] = useState('');
-  const [start, setStart] = useState('');
-  const [finish, setFinish] = useState('');
-  const [currentlyStudying, setCurrentlyStudying] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission logic
+function EducationForm({ data, onUpdate }) {
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    onUpdate({ ...data, [name]: type === "checkbox" ? checked : value });
   };
 
   return (
     <div className="form-container">
       <h2>Education</h2>
-      <form onSubmit={handleSubmit}>
+      <form>
         <div className="form-group">
           <label>Institution Name</label>
           <input
             type="text"
-            value={institutionName}
-            onChange={(e) => setInstitutionName(e.target.value)}
+            name="institutionName"
+            value={data.institutionName || ""}
+            onChange={handleChange}
           />
         </div>
         <div className="form-group">
           <label>Course</label>
           <input
             type="text"
-            value={course}
-            onChange={(e) => setCourse(e.target.value)}
+            name="course"
+            value={data.course || ""}
+            onChange={handleChange}
           />
         </div>
         <div className="form-group">
           <label>Country</label>
           <input
             type="text"
-            value={country}
-            onChange={(e) => setCountry(e.target.value)}
+            name="country"
+            value={data.country || ""}
+            onChange={handleChange}
           />
         </div>
         <div className="form-group">
           <label>State</label>
           <input
             type="text"
-            value={state}
-            onChange={(e) => setState(e.target.value)}
+            name="state"
+            value={data.state || ""}
+            onChange={handleChange}
           />
         </div>
         <div className="form-group">
@@ -55,30 +52,32 @@ function EducationForm() {
           <div className="time-period">
             <input
               type="text"
+              name="start"
               placeholder="MM/YY"
-              value={start}
-              onChange={(e) => setStart(e.target.value)}
+              value={data.start || ""}
+              onChange={handleChange}
             />
             <input
               type="text"
+              name="finish"
               placeholder="MM/YY"
-              value={finish}
-              onChange={(e) => setFinish(e.target.value)}
-              disabled={currentlyStudying}
+              value={data.finish || ""}
+              onChange={handleChange}
+              disabled={data.currentlyStudying}
             />
           </div>
           <div className="form-group">
             <label>
               <input
                 type="checkbox"
-                checked={currentlyStudying}
-                onChange={(e) => setCurrentlyStudying(e.target.checked)}
+                name="currentlyStudying"
+                checked={data.currentlyStudying || false}
+                onChange={handleChange}
               />
               Currently study here
             </label>
           </div>
         </div>
-        <button type="submit">save</button>
       </form>
     </div>
   );

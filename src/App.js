@@ -4,27 +4,28 @@ import Home from "./Home";
 import Resume from "./Resume";
 import ProfileManagementForm from "./ProfileManagementForm";
 import TemplateSelector from "./TemplateSelector";
-import { Auth0Provider } from "@auth0/auth0-react";
+import NavbarTab from "./NavbarTab";
+
 function App() {
   return (
     <div className="App">
-      <Auth0Provider
-        domain="dev-cp6bim66jwhpa5k7.us.auth0.com"
-        clientId="ux9orLoGSSijlogeYsDCSdlZar9rtuli"
-        authorizationParams={{
-          redirect_uri: window.location.origin,
-        }}
-      >
       <BrowserRouter>
-
+        <NavbarTab />
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/Resume" element={<Resume />} />
-          <Route exact path="/ProfileManagementForm" element={<ProfileManagementForm />} />
-          <Route exact path="/TemplateSelector" element={< TemplateSelector/>} />
+          <Route
+            exact
+            path="/ProfileManagementForm"
+            element={<ProfileManagementForm />}
+          />
+          <Route
+            exact
+            path="/TemplateSelector"
+            element={<TemplateSelector />}
+          />
         </Routes>
       </BrowserRouter>
-        </Auth0Provider>
     </div>
   );
 }

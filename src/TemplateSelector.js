@@ -1,37 +1,27 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-const templates = [
-  { id: 1, name: 'Classic', image: '/images/template1.png' },
-  { id: 2, name: 'Modern', image: '/images/template2.png' },
-  { id: 3, name: 'Creative', image: '/images/template3.png' },
-];
+import React from "react";
+import PropTypes from "prop-types";
+import "./TemplateSelector.css";
 
-const TemplateSelector = () => {
-  const [selectedTemplate, setSelectedTemplate] = useState(null);
-  const navigate = useNavigate();
-
-  const handleSelect = (template) => {
-    setSelectedTemplate(template.id);
-    navigate(`/create-resume/${template.id}`);
-  };
-
+function TemplateSelector({ templates, onSelect }) {
   return (
-    <div className="container mt-5">
-      <h2>Select a Template</h2>
-      <div className="row">
-        {templates.map((template) => (
-          <div key={template.id} className="col-md-4">
-            <div className={`card ${selectedTemplate === template.id ? 'border-primary' : ''}`} onClick={() => handleSelect(template)}>
-              <img src={template.image} className="card-img-top" alt={template.name} />
-              <div className="card-body">
-                <h5 className="card-title">{template.name}</h5>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
+    <div className="template-options">
+      {templates.map((template) => (
+        <div
+          key={template.id}
+          className="template-option"
+          onClick={() => onSelect(template)}
+        >
+          {template.name}
+        </div>
+      ))}
     </div>
   );
+}
+
+TemplateSelector.propTypes = {
+  templates: PropTypes.array.isRequired,
+  onSelect: PropTypes.func.isRequired,
 };
 
 export default TemplateSelector;
+

@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React from "react";
+import './forms.css';
 
-function PersonalInformationForm() {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [address, setAddress] = useState('');
+function PersonalInformationForm({ data, onUpdate }) {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    onUpdate({ ...data, [name]: value });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic
+    // Handle form submission logic if needed
   };
 
   return (
@@ -20,43 +20,48 @@ function PersonalInformationForm() {
           <label>First Name</label>
           <input
             type="text"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
+            name="firstName"
+            value={data.firstName || ""}
+            onChange={handleChange}
           />
         </div>
         <div className="form-group">
           <label>Last Name</label>
           <input
             type="text"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
+            name="lastName"
+            value={data.lastName || ""}
+            onChange={handleChange}
           />
         </div>
         <div className="form-group">
           <label>Email</label>
           <input
             type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            name="email"
+            value={data.email || ""}
+            onChange={handleChange}
           />
         </div>
         <div className="form-group">
           <label>Phone Number</label>
           <input
             type="tel"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
+            name="phone"
+            value={data.phone || ""}
+            onChange={handleChange}
           />
         </div>
         <div className="form-group">
           <label>Address</label>
           <input
             type="text"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
+            name="address"
+            value={data.address || ""}
+            onChange={handleChange}
           />
         </div>
-        <button type="submit">save</button>
+        <button id="save" type="submit">Save</button>
       </form>
     </div>
   );

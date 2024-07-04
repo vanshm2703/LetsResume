@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
-
-function ContactInformationForm() {
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
+import React from "react";
+import "./forms.css";
+function ContactInformationForm({ data, onUpdate }) {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    onUpdate({ ...data, [name]: value });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic
+    // Handle form submission logic if needed
   };
 
   return (
@@ -17,19 +19,21 @@ function ContactInformationForm() {
           <label>Email</label>
           <input
             type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            name="email"
+            value={data.email || ""}
+            onChange={handleChange}
           />
         </div>
         <div className="form-group">
           <label>Phone Number</label>
           <input
             type="tel"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
+            name="phone"
+            value={data.phone || ""}
+            onChange={handleChange}
           />
         </div>
-        <button type="submit">save</button>
+        <button id="save" type="submit">Save</button>
       </form>
     </div>
   );

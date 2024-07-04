@@ -1,53 +1,50 @@
-import React, { useState } from 'react';
+import React from "react";
+import "./forms.css";
 
-function Experience_Form() {
-  const [jobTitle, setJobTitle] = useState('');
-  const [companyName, setCompanyName] = useState('');
-  const [country, setCountry] = useState('');
-  const [state, setState] = useState('');
-  const [start, setStart] = useState('');
-  const [finish, setFinish] = useState('');
-  const [currentlyWorking, setCurrentlyWorking] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission logic
+function Experience_Form({ data, onUpdate }) {
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    onUpdate({ ...data, [name]: type === "checkbox" ? checked : value });
   };
 
   return (
     <div className="form-container">
       <h2>Experience</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>Job Title</label>
-          <input
-            type="text"
-            value={jobTitle}
-            onChange={(e) => setJobTitle(e.target.value)}
-          />
-        </div>
+      <form>
         <div className="form-group">
           <label>Company Name</label>
           <input
             type="text"
-            value={companyName}
-            onChange={(e) => setCompanyName(e.target.value)}
+            name="companyName"
+            value={data.companyName || ""}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-group">
+          <label>Position</label>
+          <input
+            type="text"
+            name="position"
+            value={data.position || ""}
+            onChange={handleChange}
           />
         </div>
         <div className="form-group">
           <label>Country</label>
           <input
             type="text"
-            value={country}
-            onChange={(e) => setCountry(e.target.value)}
+            name="country"
+            value={data.country || ""}
+            onChange={handleChange}
           />
         </div>
         <div className="form-group">
           <label>State</label>
           <input
             type="text"
-            value={state}
-            onChange={(e) => setState(e.target.value)}
+            name="state"
+            value={data.state || ""}
+            onChange={handleChange}
           />
         </div>
         <div className="form-group">
@@ -55,30 +52,32 @@ function Experience_Form() {
           <div className="time-period">
             <input
               type="text"
+              name="start"
               placeholder="MM/YY"
-              value={start}
-              onChange={(e) => setStart(e.target.value)}
+              value={data.start || ""}
+              onChange={handleChange}
             />
             <input
               type="text"
+              name="finish"
               placeholder="MM/YY"
-              value={finish}
-              onChange={(e) => setFinish(e.target.value)}
-              disabled={currentlyWorking}
+              value={data.finish || ""}
+              onChange={handleChange}
+              disabled={data.currentlyWorking}
             />
           </div>
           <div className="form-group">
             <label>
               <input
                 type="checkbox"
-                checked={currentlyWorking}
-                onChange={(e) => setCurrentlyWorking(e.target.checked)}
+                name="currentlyWorking"
+                checked={data.currentlyWorking || false}
+                onChange={handleChange}
               />
               Currently working here
             </label>
           </div>
         </div>
-        <button type="submit">save</button>
       </form>
     </div>
   );
