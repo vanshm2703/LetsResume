@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import "./component.css";
 import "./forms.css";
-import { registerapi } from "../src/api/apiCall";
+import { registerapi, registerList } from "../src/api/apiCall";
 
 function ProfileManagementForm() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [registeredUser, setRegisteredUser] = useState(null); // State to hold registered user info
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,20 +19,27 @@ function ProfileManagementForm() {
     const formData = {
       firstName,
       lastName,
-      email
+      email,
     };
 
-    try {
+      const responses = await registerList();
+      const existes = responses.filter((elem) => {
+        return elem.email === formData.email;
+      });
       const response = await registerapi(formData);
-      alert("Registration successful");
-      setRegisteredUser(response); // Update state with registered user info
-      setFirstName("");
-      setLastName("");
-      setEmail("");
-    } catch (error) {
-      console.error("Registration failed:", error);
-      alert("Registration failed. Please try again later.");
-    }
+
+      if (existes.length > 0) {
+        // User already exists with this email
+        alert(
+          "User already exists with this email. Please try registering with a different email."
+        );
+      } else {
+        // Registration successful
+        alert("Registration successful");
+        setFirstName("");
+        setLastName("");
+        setEmail("");
+      }
   };
 
   return (
@@ -72,15 +78,6 @@ function ProfileManagementForm() {
           Save
         </button>
       </form>
-
-      {registeredUser && (
-        <div className="registered-user-info">
-          <h3>Registered User Information</h3>
-          <p><strong>First Name:</strong> {registeredUser.firstName}</p>
-          <p><strong>Last Name:</strong> {registeredUser.lastName}</p>
-          <p><strong>Email:</strong> {registeredUser.email}</p>
-        </div>
-      )}
     </div>
   );
 }

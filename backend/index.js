@@ -9,12 +9,11 @@ const app = express();
 // Middleware
 app.use(
   cors({
-    origin:
-      "https://06c9025e-6f17-452e-9a86-112ab0c650a7-00-yrcqkh4jxzfb.sisko.replit.dev:3000",
-    methods: "GET,POST,PUT,DELETE",
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
     optionsSuccessStatus: 200,
-  }),
+  })
 );
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
