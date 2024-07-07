@@ -59,12 +59,13 @@ body {
 .form-container {
   flex-grow: 1;
   padding: 40px;
-  background-color: white;
+  background-color: gold;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .form-container h2 {
   color: #6200ea;
+  font-size: 2em;
 }
 
 .form-group {

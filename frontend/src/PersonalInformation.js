@@ -14,7 +14,7 @@ function PersonalInformationForm({ data, onUpdate }) {
 
   return (
     <div className="form-container">
-      <h2>Personal Information</h2>
+      <h2><strong><em>Personal Information</em></strong></h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>First Name</label>
