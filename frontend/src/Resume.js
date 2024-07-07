@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import { saveAs } from "file-saver";
-import { Document, Packer, Paragraph } from "docx";
+
 import Select from "react-select";
 import "./component.css";
 import PersonalInformationForm from "./PersonalInformation";
@@ -22,7 +22,7 @@ const sections = [
 
 const downloadOptions = [
   { value: "pdf", label: "PDF" },
-  { value: "docx", label: "DOCX" },
+ 
   { value: "jpg", label: "JPG" },
 ];
 
@@ -443,24 +443,8 @@ function Resume() {
         break;
       
       
-    
-      case "docx":
-        const doc = new Document({
-          sections: [
-            {
-              properties: {},
-              children: [
-                new Paragraph("Resume"),
-                // Add other resume content here
-              ],
-            },
-          ],
-        });
-    
-        Packer.toBlob(doc).then((blob) => {
-          saveAs(blob, "resume.docx");
-        });
-        break;
+              
+      
     
       case "jpg":
         const canvasJPG = await html2canvas(previewElement);
