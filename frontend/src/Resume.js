@@ -424,14 +424,26 @@ function Resume() {
     const previewElement = document.querySelector(".preview-container");
 
     switch (selectedFormat.value) {
+     
       case "pdf":
-        const canvasPDF = await html2canvas(previewElement);
+        // Capture the preview element as a canvas
+        const canvasPDF = await html2canvas(previewElement, { scale: 2 });
+      
+        // Create an image from the canvas
         const imgData = canvasPDF.toDataURL("image/png");
-        const pdf = new jsPDF();
-        pdf.addImage(imgData, "PNG", 0, 0);
+      
+        // Calculate the dimensions of the PDF page
+        const pdf = new jsPDF("p", "mm", "a4");
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = pdf.internal.pageSize.getHeight();
+      
+        // Add the image to the PDF, starting from the top-left corner
+        pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
         pdf.save("resume.pdf");
         break;
-
+      
+      
+    
       case "docx":
         const doc = new Document({
           sections: [
@@ -444,22 +456,23 @@ function Resume() {
             },
           ],
         });
-
+    
         Packer.toBlob(doc).then((blob) => {
           saveAs(blob, "resume.docx");
         });
         break;
-
+    
       case "jpg":
         const canvasJPG = await html2canvas(previewElement);
         canvasJPG.toBlob((blob) => {
           saveAs(blob, "resume.jpg");
         });
         break;
-
+    
       default:
         break;
     }
+    
   };
 
   return (
