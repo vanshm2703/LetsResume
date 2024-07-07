@@ -1,17 +1,30 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import "./pages.css";
 import logo from "./logo.png";
+
 const NavbarTab = () => {
   const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
+  const navigate = useNavigate();
+
+  const handleLinkClick = (e, path) => {
+    if (!isAuthenticated) {
+      e.preventDefault();
+      alert("Please log in to continue.");
+    } else {
+      navigate(path);
+    }
+  };
 
   return (
-    <nav className="navbar navbar-expand-lg bg-none" id ="nav">
+    <nav className="navbar navbar-expand-lg bg-none" id="nav">
       <div className="container-fluid">
         <img src={logo} className="logo" alt="..." />
         <Link className="navbar-brand" to="/">
-         <h3 id ="title"> <strong>Let's Resume</strong></h3>
+          <h3 id="title">
+            <strong>Let's Resume</strong>
+          </h3>
         </Link>
         <button
           className="navbar-toggler"
@@ -32,20 +45,24 @@ const NavbarTab = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/Resume">
+              <Link
+                className="nav-link"
+                to="/Resume"
+                onClick={(e) => handleLinkClick(e, "/Resume")}
+              >
                 Build Resume
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/ProfileManagementForm">
+              <Link
+                className="nav-link"
+                to="/ProfileManagementForm"
+                onClick={(e) => handleLinkClick(e, "/ProfileManagementForm")}
+              >
                 Profile
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/TemplateSelector">
-                Templates
-              </Link>
-            </li>
+       
             <li className="nav-item">
               {isAuthenticated ? (
                 <button

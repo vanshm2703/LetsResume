@@ -1,34 +1,53 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./pages.css";
 import { useAuth0 } from "@auth0/auth0-react";
+import { Link } from "react-router-dom";
 import step1 from "./step1.jpg";
 import step2 from "./step2.jpg";
 import step3 from "./step3.jpg";
 import step4 from "./step4.jpg";
 import step5 from "./step5.jpg";
+
 const Home = () => {
   const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
+  const [showFirstLine, setShowFirstLine] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setShowFirstLine((prev) => !prev); // Toggle between true and false
+    }, 5000); // Change every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div id = "main">
+    <div id="main">
       <header className="hero-section">
         <div className="container text-center">
           <h1 className="display-4">Build Your Professional Resume</h1>
           <p className="lead">
-            Create a stunning resume in minutes with our easy-to-use builder.
+            {showFirstLine
+              ? "Create a stunning resume in minutes with our easy-to-use builder."
+              : "It's easy and completely free to use."}
           </p>
           <a className="btn btn-primary btn-lg" role="button">
             {isAuthenticated ? (
-              <button
-                className="btn btn-primary btn-lg"
-                onClick={() =>
-                  logout({
-                    logoutParams: { returnTo: window.location.origin },
-                  })
-                }
-              >
-                Log Out
-              </button>
+              <>
+                <button
+                  className="btn btn-primary btn-lg"
+                  onClick={() =>
+                    logout({
+                      logoutParams: { returnTo: window.location.origin },
+                    })
+                  }
+                >
+                  Log Out
+                </button>
+                <Link to="/Resume" className="btn btn-success btn-lg ml-2">
+                  Get Started
+                </Link>
+              </>
             ) : (
               <button
                 className="btn btn-primary btn-lg"
