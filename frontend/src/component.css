@@ -269,3 +269,15 @@ body {
 transform:scale(1.1);
   background-color:dimgray;
 }
+
+#options{
+  color:black
+}
+.download-options{
+  margin-top: 15px;
+}
+#color{
+  color:yellow;
+  font-size: 2rem;
+  
+}
