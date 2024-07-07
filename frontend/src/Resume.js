@@ -16,7 +16,7 @@ const sections = [
   "Personal Information",
   "Education",
   "Experience",
-  "Contact Information",
+  
   "Award/Certification",
 ];
 
@@ -602,12 +602,7 @@ function Resume() {
             </button>
           </div>
         )}
-        {activeSection === "Contact Information" && (
-          <ContactInformationForm
-            data={resumeData.contactInformation}
-            onUpdate={(data) => handleUpdate("contactInformation", data)}
-          />
-        )}
+        
         <button type="button" className="next-button" onClick={handleNext}>
           Next Section
         </button>
@@ -653,8 +648,8 @@ function Resume() {
       </div>
       </div>
       
-      <div className="preview-container">
-        <ResumePreview
+      <div className="preview-Container" >
+        <ResumePreview 
           data={resumeData}
           selectedColor={selectedColor}
           selectedBackgroundColor={selectedBackgroundColor}

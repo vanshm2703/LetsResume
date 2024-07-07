@@ -33,6 +33,7 @@ function ProfileManagementForm() {
         alert(
           "User already exists with this email. Please try registering with a different email."
         );
+        
       } else {
         // Registration successful
         alert("Registration successful");

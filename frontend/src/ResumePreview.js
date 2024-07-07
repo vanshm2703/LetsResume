@@ -10,12 +10,15 @@ function ResumePreview({ data, selectedColor, selectedBackgroundColor, selectedF
     fontFamily: selectedFontFamily.value,
   };
 
-  return (
+  return (<div className="preview-container" >
     <div className="preview">
       <div className="personal-information" style={sectionStyles}>
         <h2>Personal Information</h2>
         <div>
-          <strong>Name:</strong> {personalInformation.name}
+          <strong>First Name:</strong> {personalInformation.firstName}
+        </div>
+        <div>
+          <strong>Last Name:</strong> {personalInformation.lastName}
         </div>
         <div>
           <strong>Email:</strong> {personalInformation.email}
@@ -60,54 +63,47 @@ function ResumePreview({ data, selectedColor, selectedBackgroundColor, selectedF
         {experience.map((exp, index) => (
           <div key={index}>
             <div>
-              <strong>Company:</strong> {exp.company}
+              <strong>Company:</strong> {exp.companyName}
             </div>
             <div>
               <strong>Position:</strong> {exp.position}
             </div>
             <div>
-              <strong>Start Date:</strong> {exp.startDate}
+              <strong>Country:</strong> {exp.country}
             </div>
             <div>
-              <strong>End Date:</strong> {exp.endDate}
+              <strong>State:</strong> {exp.state}
             </div>
             <div>
-              <strong>Description:</strong> {exp.description}
+              <strong>Start:</strong> {exp.start}
+            </div>
+           
+            <div>
+              <strong>Currently Working:</strong> {exp.currentlyWorking ? "Yes" : "No"}
             </div>
           </div>
         ))}
       </div>
-      <div className="contact-information" style={sectionStyles}>
-        <h2>Contact Information</h2>
-        <div>
-          <strong>Email:</strong> {contactInformation.email}
-        </div>
-        <div>
-          <strong>Phone:</strong> {contactInformation.phone}
-        </div>
-        <div>
-          <strong>Address:</strong> {contactInformation.address}
-        </div>
-      </div>
+      
+     
       <div className="awards" style={sectionStyles}>
         <h2>Awards & Certifications</h2>
         {awards.map((award, index) => (
           <div key={index}>
             <div>
-              <strong>Title:</strong> {award.title}
+              <strong>Award/Certification Name:</strong> {award.name}
             </div>
             <div>
-              <strong>Issuer:</strong> {award.issuer}
+              <strong>Institution:</strong> {award.institution}
             </div>
             <div>
               <strong>Date:</strong> {award.date}
             </div>
-            <div>
-              <strong>Description:</strong> {award.description}
-            </div>
+            
           </div>
         ))}
       </div>
+    </div>
     </div>
   );
 }
