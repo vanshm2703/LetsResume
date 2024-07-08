@@ -44,8 +44,8 @@ function ProfileManagementForm() {
   };
 
   return (
-    <div className="form-container">
-      <h2>Profile Management</h2>
+    <div className="profilem-container">
+      <h2><strong><em>Profile Management</em></strong></h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>First Name</label>

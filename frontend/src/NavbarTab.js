@@ -8,11 +8,15 @@ const NavbarTab = () => {
   const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
   const navigate = useNavigate();
 
+  
+  
   const handleLinkClick = (e, path) => {
     if (!isAuthenticated) {
       e.preventDefault();
       alert("Please log in to continue.");
-    } else {
+    } 
+   
+    else {
       navigate(path);
     }
   };

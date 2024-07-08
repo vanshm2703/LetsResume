@@ -44,7 +44,7 @@ const Home = () => {
                 >
                   Log Out
                 </button>
-                <Link to="/Resume" className="btn btn-success btn-lg ml-2">
+                <Link to="/ProfileManagementForm" className="btn btn-success btn-lg ml-2">
                   Get Started
                 </Link>
               </>

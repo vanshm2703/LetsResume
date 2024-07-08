@@ -16,7 +16,7 @@ body {
 }
 
 .sidebar {
-  width: 20%;
+  width: 10%;
   background-color: #6200ea;
   color: white;
   padding: 20px;
@@ -59,13 +59,19 @@ body {
 .form-container {
   flex-grow: 1;
   padding: 40px;
-  background-color: gold;
+  background-color: bisque;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .form-container h2 {
-  color: #6200ea;
+  color: darkslategray;
   font-size: 2em;
+}
+.profilem-container{
+  flex-grow: 1;
+  padding: 40px;
+  background-color: ghostwhite;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
