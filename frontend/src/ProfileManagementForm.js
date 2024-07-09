@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./component.css";
 import "./forms.css";
 import { registerapi, registerList } from "../src/api/apiCall";
@@ -7,6 +8,7 @@ function ProfileManagementForm() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,25 +24,24 @@ function ProfileManagementForm() {
       email,
     };
 
-      const responses = await registerList();
-      const existes = responses.filter((elem) => {
-        return elem.email === formData.email;
-      });
-      const response = await registerapi(formData);
+    const responses = await registerList();
+    const exists = responses.filter((elem) => {
+      return elem.email === formData.email;
+    });
 
-      if (existes.length > 0) {
-        // User already exists with this email
-        alert(
-          "User already exists with this email. Please try registering with a different email."
-        );
-        
-      } else {
-        // Registration successful
-        alert("Registration successful");
-        setFirstName("");
-        setLastName("");
-        setEmail("");
-      }
+    if (exists.length > 0) {
+    
+      alert("You are already registered,redirecting to ResumeBuilder.");
+      navigate("/resume");
+    } else {
+      
+      const response = await registerapi(formData);
+      alert("Welcome to the family,Registeration Successful");
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      navigate("/resume");
+    }
   };
 
   return (
@@ -74,9 +75,8 @@ function ProfileManagementForm() {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-
         <button id="save" type="submit">
-          Save
+          Save & Next
         </button>
       </form>
     </div>

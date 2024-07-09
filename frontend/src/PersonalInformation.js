@@ -1,5 +1,6 @@
 import React from "react";
 import './forms.css';
+import ProfileManagementForm from "./ProfileManagementForm";
 
 function PersonalInformationForm({ data, onUpdate }) {
   const handleChange = (e) => {
@@ -9,7 +10,6 @@ function PersonalInformationForm({ data, onUpdate }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic if needed
   };
 
   return (
@@ -61,7 +61,7 @@ function PersonalInformationForm({ data, onUpdate }) {
             onChange={handleChange}
           />
         </div>
-        <button id="save" type="submit">Save</button>
+       
       </form>
     </div>
   );

@@ -6,7 +6,6 @@ import { saveAs } from "file-saver";
 import Select from "react-select";
 import "./component.css";
 import PersonalInformationForm from "./PersonalInformation";
-import ContactInformationForm from "./ContactInformationForm";
 import Experience_Form from "./Experience_Form";
 import AwardCertificationForm from "./AwardCertificationForm";
 import EducationForm from "./EducationForm";
@@ -414,8 +413,7 @@ function Resume() {
   };
 
   const handleStyleChange = () => {
-    // Handle style change logic here if needed
-    // Directly update the selectedColor, selectedBackgroundColor, selectedFontFamily states
+   
     setSelectedColor(colorOptions.find((opt) => opt.value === selectedColor.value));
     setSelectedBackgroundColor(backgroundColorOptions.find((opt) => opt.value === selectedBackgroundColor.value));
     setSelectedFontFamily(fontFamilyOptions.find((opt) => opt.value === selectedFontFamily.value));
@@ -426,18 +424,18 @@ function Resume() {
     switch (selectedFormat.value) {
      
       case "pdf":
-        // Capture the preview element as a canvas
+       
         const canvasPDF = await html2canvas(previewElement, { scale: 2 });
       
-        // Create an image from the canvas
+        
         const imgData = canvasPDF.toDataURL("image/png");
       
-        // Calculate the dimensions of the PDF page
+       
         const pdf = new jsPDF("p", "mm", "a4");
         const pdfWidth = pdf.internal.pageSize.getWidth();
         const pdfHeight = pdf.internal.pageSize.getHeight();
       
-        // Add the image to the PDF, starting from the top-left corner
+      
         pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
         pdf.save("resume.pdf");
         break;

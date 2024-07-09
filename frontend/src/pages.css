@@ -96,7 +96,7 @@ button:hover {
   color: var(--primary-color);
 }
 
-/* Animations */
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -139,7 +139,7 @@ button:hover {
   }
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
   .hero-section {
     padding: 50px 0;

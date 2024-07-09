@@ -28,7 +28,7 @@ const Home = () => {
           <h1 className="display-4">Build Your Professional Resume</h1>
           <p className="lead">
             {showFirstLine
-              ? "Create a stunning resume in minutes with our easy-to-use builder."
+              ? "Create a stunning resume in minutes with our easy-to-use resume builder."
               : "It's easy and completely free to use."}
           </p>
           <a className="btn btn-primary btn-lg" role="button">
@@ -80,8 +80,8 @@ const Home = () => {
             <div className="col-md-4 text-center">
               <div className="feature-box">
                 <i className="fa-regular fa-file fa-3x"></i>
-                <h3>Customizable Templates</h3>
-                <p>Choose from a variety of professional templates.</p>
+                <h3>Customizable Designs</h3>
+                <p>Select from a range of professional customization options for your resume.</p>
               </div>
             </div>
             <div className="col-md-4 text-center">
@@ -124,7 +124,7 @@ const Home = () => {
             <div className="col-md-6 text-center">
               <div className="step-box p-4">
                 <h3>Step 3</h3>
-                <p>Choose a template and customize it.</p>
+                <p>Customize your resume with a range of colors and fonts to suit your style.</p>
               </div>
             </div>
             <div className="col-md-6 text-center">

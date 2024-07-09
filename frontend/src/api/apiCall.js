@@ -13,9 +13,9 @@ export const registerapi = async (formdata) => {
 export const registerList = async () => {
   try {
     const response = await axios.get('http://localhost:5000/users');
-    return response.data; // Return the data from the response
+    return response.data; 
   } catch (error) {
-    throw error; // Re-throw the error to handle it in the calling code
+    throw error; 
   }
 };
 
