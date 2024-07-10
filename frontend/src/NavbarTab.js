@@ -44,7 +44,7 @@ const NavbarTab = () => {
                 Home
               </Link>
             </li>
-            
+
             <li className="nav-item">
               <Link
                 className="nav-link"
@@ -54,28 +54,28 @@ const NavbarTab = () => {
                 Profile
               </Link>
             </li>
-            <li className="nav-item">
-              {isAuthenticated ? (
-                <button 
-                  className="nav-link btn btn-link"
-                  onClick={() =>
-                    logout({
-                      logoutParams: { returnTo: window.location.origin },
-                    })
-                  }
-                >
-                  <i className="fa-solid fa-right-to-bracket fa-xl"></i> 
-                </button>
-              ) : (
-                <button 
-                  className="nav-link btn btn-link"
-                  onClick={() => loginWithRedirect()}
-                >
-                  <i className="fa-solid fa-right-to-bracket fa-2xl"></i> 
-                </button>
-              )}
-            </li>
           </ul>
+          <div className="nav-item">
+            {isAuthenticated ? (
+              <button
+                className="nav-link btn btn-link"
+                onClick={() =>
+                  logout({
+                    logoutParams: { returnTo: window.location.origin },
+                  })
+                }
+              >
+                <i className="fa-solid fa-right-to-bracket fa-xl"></i>
+              </button>
+            ) : (
+              <button
+                className="nav-link btn btn-link"
+                onClick={() => loginWithRedirect()}
+              >
+                <i className="fa-solid fa-right-to-bracket fa-2xl"></i>
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </nav>

@@ -15,13 +15,13 @@ const sections = [
   "Personal Information",
   "Education",
   "Experience",
-  
+
   "Award/Certification",
 ];
 
 const downloadOptions = [
   { value: "pdf", label: "PDF" },
- 
+
   { value: "jpg", label: "JPG" },
 ];
 
@@ -69,10 +69,7 @@ const colorOptions = [
   { value: "mediumseagreen", label: "Medium Sea Green" },
   { value: "slateblue", label: "Slate Blue" },
   { value: "tomato", label: "Tomato" },
- 
 ];
-
-
 
 const backgroundColorOptions = [
   { value: "white", label: "White" },
@@ -195,16 +192,17 @@ const backgroundColorOptions = [
   { value: "wheat", label: "Wheat" },
   { value: "whitesmoke", label: "White Smoke" },
   { value: "yellowgreen", label: "Yellow Green" },
-
 ];
-
 
 const fontFamilyOptions = [
   { value: "'Times New Roman', Times, serif", label: "Times New Roman" },
   { value: "'Arial', sans-serif", label: "Arial" },
   { value: "'Georgia', serif", label: "Georgia" },
   { value: "'Courier New', Courier, monospace", label: "Courier New" },
-  { value: "'Palatino Linotype', 'Book Antiqua', Palatino, serif", label: "Palatino Linotype" },
+  {
+    value: "'Palatino Linotype', 'Book Antiqua', Palatino, serif",
+    label: "Palatino Linotype",
+  },
   { value: "'Lucida Bright', Georgia, serif", label: "Lucida Bright" },
   { value: "'Trebuchet MS', Helvetica, sans-serif", label: "Trebuchet MS" },
   { value: "'Verdana', Geneva, sans-serif", label: "Verdana" },
@@ -214,30 +212,81 @@ const fontFamilyOptions = [
   { value: "'Arial Black', Gadget, sans-serif", label: "Arial Black" },
   { value: "'Comic Sans MS', cursive", label: "Comic Sans MS" },
   { value: "'Century Gothic', sans-serif", label: "Century Gothic" },
-  { value: "'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif", label: "Franklin Gothic Medium" },
-  { value: "'Copperplate', Copperplate Gothic Light, sans-serif", label: "Copperplate" },
-  { value: "'Helvetica', 'Arial Narrow', Arial, sans-serif", label: "Helvetica" },
+  {
+    value: "'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif",
+    label: "Franklin Gothic Medium",
+  },
+  {
+    value: "'Copperplate', Copperplate Gothic Light, sans-serif",
+    label: "Copperplate",
+  },
+  {
+    value: "'Helvetica', 'Arial Narrow', Arial, sans-serif",
+    label: "Helvetica",
+  },
   { value: "'Tahoma', Geneva, sans-serif", label: "Tahoma" },
   { value: "'Geneva', Tahoma, sans-serif", label: "Geneva" },
   { value: "'Optima', sans-serif", label: "Optima" },
-  { value: "'Calibri', Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif", label: "Calibri" },
-  { value: "'Baskerville', 'Palatino Linotype', Palatino, 'Century Schoolbook', serif", label: "Baskerville" },
+  {
+    value: "'Calibri', Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif",
+    label: "Calibri",
+  },
+  {
+    value:
+      "'Baskerville', 'Palatino Linotype', Palatino, 'Century Schoolbook', serif",
+    label: "Baskerville",
+  },
   { value: "'Futura', 'Trebuchet MS', Arial, sans-serif", label: "Futura" },
   { value: "'Arial Narrow', sans-serif", label: "Arial Narrow" },
-  { value: "'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Geneva, Verdana, sans-serif", label: "Lucida Grande" },
-  { value: "'Rockwell', 'Courier Bold', Courier, Georgia, Times, serif", label: "Rockwell" },
-  { value: "'Gill Sans', 'Gill Sans MT', Calibri, sans-serif", label: "Gill Sans" },
-  { value: "'Myriad Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif", label: "Myriad Pro" },
-  { value: "'Century Schoolbook', 'Times New Roman', Times, serif", label: "Century Schoolbook" },
-  { value: "'Arial Rounded MT Bold', sans-serif", label: "Arial Rounded MT Bold" },
-  { value: "'Courier', 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace", label: "Courier" },
+  {
+    value:
+      "'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Geneva, Verdana, sans-serif",
+    label: "Lucida Grande",
+  },
+  {
+    value: "'Rockwell', 'Courier Bold', Courier, Georgia, Times, serif",
+    label: "Rockwell",
+  },
+  {
+    value: "'Gill Sans', 'Gill Sans MT', Calibri, sans-serif",
+    label: "Gill Sans",
+  },
+  {
+    value: "'Myriad Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif",
+    label: "Myriad Pro",
+  },
+  {
+    value: "'Century Schoolbook', 'Times New Roman', Times, serif",
+    label: "Century Schoolbook",
+  },
+  {
+    value: "'Arial Rounded MT Bold', sans-serif",
+    label: "Arial Rounded MT Bold",
+  },
+  {
+    value:
+      "'Courier', 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace",
+    label: "Courier",
+  },
   { value: "'Candara', 'Trebuchet MS', Arial, sans-serif", label: "Candara" },
-  { value: "'Andale Mono', 'Courier New', Courier, monospace", label: "Andale Mono" },
+  {
+    value: "'Andale Mono', 'Courier New', Courier, monospace",
+    label: "Andale Mono",
+  },
   { value: "'Monaco', 'Lucida Console', monospace", label: "Monaco" },
-  { value: "'Consolas', 'Lucida Console', Monaco, monospace", label: "Consolas" },
-  { value: "'Arial Unicode MS', 'Lucida Grande', sans-serif", label: "Arial Unicode MS" },
+  {
+    value: "'Consolas', 'Lucida Console', Monaco, monospace",
+    label: "Consolas",
+  },
+  {
+    value: "'Arial Unicode MS', 'Lucida Grande', sans-serif",
+    label: "Arial Unicode MS",
+  },
   { value: "'Lato', 'Arial', sans-serif", label: "Lato" },
-  { value: "'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif", label: "Roboto" },
+  {
+    value: "'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif",
+    label: "Roboto",
+  },
   { value: "'Open Sans', sans-serif", label: "Open Sans" },
   { value: "'Montserrat', sans-serif", label: "Montserrat" },
   { value: "'Raleway', sans-serif", label: "Raleway" },
@@ -348,9 +397,7 @@ const fontFamilyOptions = [
   { value: "'Sunflower', sans-serif", label: "Sunflower" },
   { value: "'Yeon Sung', cursive", label: "Yeon Sung" },
   { value: "'Yeon Sung', cursive", label: "Yeon Sung" },
-  
 ];
-
 
 function Resume() {
   const [activeSection, setActiveSection] = useState(sections[0]);
@@ -361,6 +408,7 @@ function Resume() {
     contactInformation: {},
     awards: [],
   });
+  console.log("resumeData", resumeData);
   const [selectedFormat, setSelectedFormat] = useState(downloadOptions[0]);
   const [selectedColor, setSelectedColor] = useState(colorOptions[0]);
   const [selectedBackgroundColor, setSelectedBackgroundColor] = useState(
@@ -413,54 +461,55 @@ function Resume() {
   };
 
   const handleStyleChange = () => {
-   
-    setSelectedColor(colorOptions.find((opt) => opt.value === selectedColor.value));
-    setSelectedBackgroundColor(backgroundColorOptions.find((opt) => opt.value === selectedBackgroundColor.value));
-    setSelectedFontFamily(fontFamilyOptions.find((opt) => opt.value === selectedFontFamily.value));
+    setSelectedColor(
+      colorOptions.find((opt) => opt.value === selectedColor.value)
+    );
+    setSelectedBackgroundColor(
+      backgroundColorOptions.find(
+        (opt) => opt.value === selectedBackgroundColor.value
+      )
+    );
+    setSelectedFontFamily(
+      fontFamilyOptions.find((opt) => opt.value === selectedFontFamily.value)
+    );
   };
   const handleDownload = async () => {
     const previewElement = document.querySelector(".preview-container");
 
     switch (selectedFormat.value) {
-     
       case "pdf":
-       
         const canvasPDF = await html2canvas(previewElement, { scale: 2 });
-      
-        
+
         const imgData = canvasPDF.toDataURL("image/png");
-      
-       
+
         const pdf = new jsPDF("p", "mm", "a4");
         const pdfWidth = pdf.internal.pageSize.getWidth();
         const pdfHeight = pdf.internal.pageSize.getHeight();
-      
-      
+
         pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
         pdf.save("resume.pdf");
         break;
-      
-      
-              
-      
-    
+
       case "jpg":
         const canvasJPG = await html2canvas(previewElement);
         canvasJPG.toBlob((blob) => {
           saveAs(blob, "resume.jpg");
         });
         break;
-    
+
       default:
         break;
     }
-    
   };
 
   return (
     <div className="app-container">
       <div className="sidebar">
-        <h1 id='color'><strong><em>Resume Builder</em></strong></h1>
+        <h1 id="color">
+          <strong>
+            <em>Resume Builder</em>
+          </strong>
+        </h1>
         <ul>
           {sections.map((section, index) => (
             <li
@@ -474,7 +523,8 @@ function Resume() {
         </ul>
         <div className="style-options">
           <div className="style-label">Font Color:</div>
-          <Select id='options'
+          <Select
+            id="options"
             options={colorOptions}
             defaultValue={selectedColor}
             onChange={setSelectedColor}
@@ -482,7 +532,8 @@ function Resume() {
             className="style-select"
           />
           <div className="style-label">Background Color:</div>
-          <Select id='options'
+          <Select
+            id="options"
             options={backgroundColorOptions}
             defaultValue={selectedBackgroundColor}
             onChange={setSelectedBackgroundColor}
@@ -490,17 +541,17 @@ function Resume() {
             className="style-select"
           />
           <div className="style-label">Font Family:</div>
-          <Select id='options'
+          <Select
+            id="options"
             options={fontFamilyOptions}
             defaultValue={selectedFontFamily}
             onChange={setSelectedFontFamily}
             classNamePrefix="custom-select"
             className="style-select"
           />
-          
         </div>
       </div>
-      <div className="form-container">
+      <div className="form-containers">
         {activeSection === "Personal Information" && (
           <PersonalInformationForm
             data={resumeData.personalInformation}
@@ -597,20 +648,19 @@ function Resume() {
             </button>
           </div>
         )}
-        
+
         <button type="button" className="next-button" onClick={handleNext}>
           Next Section
         </button>
         <div className="download-options">
-        
-        <Select
-          options={downloadOptions}
-          defaultValue={selectedFormat}
-          onChange={setSelectedFormat}
-          classNamePrefix="custom-select"
-          className="style-select"
-        />
-       <button class="botao" onClick={handleDownload}>
+          <Select
+            options={downloadOptions}
+            defaultValue={selectedFormat}
+            onChange={setSelectedFormat}
+            classNamePrefix="custom-select"
+            className="style-select"
+          />
+          <button class="botao" onClick={handleDownload}>
             <svg
               class="mysvg"
               xmlns="http://www.w3.org/2000/svg"
@@ -640,18 +690,17 @@ function Resume() {
             </svg>
             <span class="texto">Download Resume</span>
           </button>
+        </div>
       </div>
-      </div>
-      
-      <div className="preview-Container" >
-        <ResumePreview 
+
+      <div className="preview-Container">
+        <ResumePreview
           data={resumeData}
           selectedColor={selectedColor}
           selectedBackgroundColor={selectedBackgroundColor}
           selectedFontFamily={selectedFontFamily}
         />
       </div>
-      
     </div>
   );
 }
