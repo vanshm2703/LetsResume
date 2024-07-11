@@ -12,3 +12,4 @@ const connectDB = async () => {
 };
 
 module.exports = connectDB;
+//in env file after writing path write /<collection name>
