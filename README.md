@@ -1,4 +1,4 @@
-# Resume Builder Website
+# Let's Resume
 
 A responsive and user-friendly Resume Builder application developed using the MERN stack (MongoDB, Express.js, React.js, Node.js). This platform enables users to create professional resumes with live previews, customize styles, and download them in PDF or JPG formats.
 
